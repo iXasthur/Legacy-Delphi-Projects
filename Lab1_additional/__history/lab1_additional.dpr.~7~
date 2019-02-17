@@ -1,0 +1,89 @@
+program lab1_additional;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+
+
+
+function digitsAreEqual(num1, num2: Integer):boolean;
+var
+  s1, s2: string;
+  i: integer;
+begin
+  digitsAreEqual:= false;
+  s1:=IntToStr(num1);
+  s2:=IntToStr(num2);
+
+  if length(s1)=length(s2) then
+  begin
+    for i := 1 to length(s1) do
+    begin
+      if pos(s1[i],s2)>0 then delete(s2, pos(s1[i],s2), 1);
+    end;
+
+    if length(s2)=0 then digitsAreEqual:= true;
+  end;
+end;
+
+
+
+function calcSumOfDigits(num :Integer):Integer;
+var
+  sum: Integer;
+begin
+  sum:=0;
+  repeat
+    sum := sum + (num mod 10);
+    num := num div 10
+  until num = 0;
+
+  calcSumOfDigits:=sum;
+end;
+
+
+
+
+function lengthOfNum(num :Integer):Integer;
+var
+  length: Integer;
+begin
+  length:=0;
+   repeat
+      length:=length + 1;
+      num:= num div 10;
+   until num = 0;
+
+   lengthOfNum:=length
+end;
+
+
+
+
+var
+  num1, num2, numLength, sumOfDigits1, sumOfDigits2 :Integer;
+
+begin
+  numLength:= 0;
+  
+  for num1 := 1000 to 9999 do
+    begin
+      for num2 := 1000 to 9999 do
+        begin
+          if (digitsAreEqual(num1,num2)=true) and 
+             (num1-num2=calcSumOfDigits(num1)) and 
+             (num1<>num2) then
+          begin
+            writeln(num1,' - ',num2);
+          end;
+        end;
+    end;
+
+    
+  writeln('Press <Enter> to exit');
+  readln;
+end.

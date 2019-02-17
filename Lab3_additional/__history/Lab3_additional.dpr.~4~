@@ -1,0 +1,61 @@
+program Lab3_additional;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+const
+  accuracy = 0.0001;
+
+function f(x:real):real;
+begin
+  f:=cos(x) - sqr(x);
+end;
+
+
+
+function secantMethod(startPos, endPos: real):real;
+begin
+writeln('SecantMethod');
+
+// a, b - пределы хорды, epsilon Ч необходима€ погрешность
+    while(abs(endPos - startPos) > accuracy) do
+      begin
+        startPos := endPos - (endPos - startPos) * f(endPos) / (f(endPos) - f(startPos));
+        endPos := startPos + (startPos - endPos) * f(startPos) / (f(startPos) - f(endPos));
+      end;
+    // a, b Ч (i - 1)-й и i-й члены
+    writeln('    y=', endPos:0:10);
+    writeln;
+    secantMethod:=endPos;
+end;
+
+
+
+function bisectionalMethod(startPos, endPos: real):real;
+begin
+writeln('BisectionalMethod');
+
+
+
+
+end;
+
+
+var
+  startPos, endPos: integer;
+  y1, y2:real;
+begin
+//---------->var 18
+startPos:=0;
+endPos:=1;
+
+y1:=secantMethod(startPos, endPos); // ћетод хорд
+y2:=bisectionalMethod(startPos, endPos); // ћетод делени€ отрезка пополам
+
+
+readln;
+end.

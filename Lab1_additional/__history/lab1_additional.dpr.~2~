@@ -1,0 +1,26 @@
+program lab1_additional;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+begin
+
+
+
+
+
+
+
+
+
+
+
+
+
+  writeln('Press <Enter> to exit');
+  readln;
+end.

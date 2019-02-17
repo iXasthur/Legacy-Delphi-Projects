@@ -1,0 +1,60 @@
+program Lab2;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+System.SysUtils;
+
+
+
+
+function calcY(x :real; n1, n2 :integer):real;
+var
+  s: integer;
+begin
+
+
+end;
+
+
+
+
+
+
+var
+  n1, n2, k:Integer;
+  pogr, x1, x2, dx, x, y:Real;
+
+begin
+  x1:=0.6;
+  x2:=1.1;
+  dx:=0.25;
+
+  pogr:=dx/1000;
+
+  n1:=10;
+  n2:=15;
+
+
+  x:=x1;
+  while x<=x2+pogr do
+  begin
+    writeln('x=',x:0:2);
+    k:=n1;
+
+    while k<n2+pogr do
+    begin
+
+    end;
+
+    x:= x+dx;
+  end;
+
+
+
+
+  writeln('Press <Enter> to exit');
+  readln;
+end.

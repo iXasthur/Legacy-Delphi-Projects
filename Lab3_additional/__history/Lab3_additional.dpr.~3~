@@ -1,0 +1,48 @@
+program Lab3_additional;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+const
+  accuracy = 0.0001;
+
+
+function secantMethod(startPos, endPos: integer):real;
+begin
+writeln('----SecantMethod');
+
+
+
+
+end;
+
+
+
+function bisectionalMethod(startPos, endPos: integer):real;
+begin
+writeln('----BisectionalMethod');
+
+
+
+
+end;
+
+
+var
+  startPos, endPos: integer;
+  y1, y2:real;
+begin
+//---------->var 18
+startPos:=0;
+endPos:=1;
+
+y1:=secantMethod(startPos, endPos); // Метод хорд
+y2:=bisectionalMethod(startPos, endPos); // Метод деления отрезка пополам
+
+
+readln;
+end.
